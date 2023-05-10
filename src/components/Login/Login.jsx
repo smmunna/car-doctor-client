@@ -13,7 +13,7 @@ const Login = () => {
     }
 
     return (
-        <div className="hero py-12 lg:py-24">
+        <div className="hero py-12 lg:py-18">
             <div className="hero-content flex-col-reverse lg:flex-row gap-20">
                 <div className="text-center lg:text-left">
                     <img src={LoginImg} alt="" />
@@ -38,7 +38,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Signup</button>
+                                <button className="btn btn-primary">Login</button>
                             </div>
                             <div className='mt-5 text-center'>
                                 <h3>Or Login with</h3>
