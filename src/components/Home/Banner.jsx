@@ -11,7 +11,7 @@ const Banner = () => {
                 <img src={Banner1} className="w-full" />
 
                 <div className="absolute flex justify-between h-full w-full  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] ">
-                    <div className='space-y-7 p-48'>
+                    <div className='space-y-5 lg:space-y-7 py-36 px-16 lg:p-48'>
                         <h3 className='text-4xl text-base-100 font-bold w-1/2'>Affordable Price For Car Servicing</h3>
                         <p className='text-base-100'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className=' flex gap-4'>
@@ -28,7 +28,7 @@ const Banner = () => {
             <div id="slide2" className="carousel-item relative w-full h-[600px]">
                 <img src={Banner2} className="w-full" />
                 <div className="absolute flex justify-between h-full w-full  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] ">
-                    <div className='space-y-7 p-48'>
+                    <div className='space-y-5 lg:space-y-7 py-36 px-16 lg:p-48'>
                         <h3 className='text-4xl text-base-100 font-bold w-1/2'>Affordable Price For Car Servicing</h3>
                         <p className='text-base-100'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className=' flex gap-4'>
@@ -45,7 +45,7 @@ const Banner = () => {
             <div id="slide3" className="carousel-item relative w-full h-[600px]">
                 <img src={Banner3} className="w-full" />
                 <div className="absolute flex justify-between h-full w-full  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] ">
-                    <div className='space-y-7 p-48'>
+                    <div className='space-y-5 lg:space-y-7 py-36 px-16 lg:p-48'>
                         <h3 className='text-4xl text-base-100 font-bold w-1/2'>Affordable Price For Car Servicing</h3>
                         <p className='text-base-100'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className=' flex gap-4'>
@@ -62,7 +62,7 @@ const Banner = () => {
             <div id="slide4" className="carousel-item relative w-full h-[600px]">
                 <img src={Banner4} className="w-full" />
                 <div className="absolute flex justify-between h-full w-full  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] ">
-                    <div className='space-y-7 p-48'>
+                    <div className='space-y-5 lg:space-y-7 py-36 px-16 lg:p-48'>
                         <h3 className='text-4xl text-base-100 font-bold w-1/2'>Affordable Price For Car Servicing</h3>
                         <p className='text-base-100'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className=' flex gap-4'>
