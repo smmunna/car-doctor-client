@@ -1,9 +1,9 @@
 import React from 'react';
 import LoginImg from '../../assets/images/login/login.svg'
-import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Signup = () => {
+
     const handleSignupSubmit = event => {
         event.preventDefault()
         const form = event.target;
@@ -11,6 +11,7 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
     }
+
 
     return (
         <div className="hero py-12 lg:py-24">
@@ -20,7 +21,7 @@ const Login = () => {
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSignupSubmit}>
-                        <h3 className="text-2xl pl-5 pt-4 font-semibold">Login</h3>
+                        <h3 className="text-2xl pl-5 pt-4 font-semibold">Signup</h3>
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -33,20 +34,10 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="text" name='password' placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    Don't have account? <Link to="/signup" className="label-text-alt link link-hover text-[16px]">Signup here</Link>
-                                </label>
+                                
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Signup</button>
-                            </div>
-                            <div className='mt-5 text-center'>
-                                <h3>Or Login with</h3>
-                                <div className="mt-3">
-                                    <button><FaGoogle /></button>
-                                    <button className='mx-3'><FaFacebook /></button>
-                                    <button><FaLinkedin /></button>
-                                </div>
                             </div>
                         </div>
                     </form>
@@ -57,4 +48,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default Signup;
