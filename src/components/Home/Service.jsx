@@ -11,7 +11,7 @@ const Service = ({ service }) => {
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
                 <div className="card-actions flex justify-between">
-                    <p className='text-red-600 text-lg'>Price: ${price}</p>
+                    <p className='text-red-600 text-lg font-semibold'>Price: ${price}</p>
                     <button><img src={nextIcon} width={30} alt="next" /></button>
                 </div>
             </div>
