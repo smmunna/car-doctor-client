@@ -1,15 +1,39 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import LoginImg from '../../assets/images/login/login.svg'
 import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+    const { signInUser } = useContext(AuthContext)
+    const [error, setError] = useState('')
+    const navigate = useNavigate()
+
     const handleSignupSubmit = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+
+        signInUser(email, password)
+            .then(result => {
+                const user = result.user
+                if (user) {
+                    navigate("/")
+                }
+            })
+            .catch(error => {
+                const fmessage = 'Firebase: Error (auth/user-not-found).'
+                if (error.message == fmessage) {
+                    setError('User Email not found')
+                }
+                else if (error.message !== fmessage) {
+                    setError('Password did not match')
+                }
+                else {
+                    setError('')
+                }
+            })
     }
 
     return (
@@ -21,6 +45,7 @@ const Login = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSignupSubmit}>
                         <h3 className="text-2xl pl-5 pt-4 font-semibold">Login</h3>
+                        <p className='mx-5 pt-5 text-red-600'>{error}</p>
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">

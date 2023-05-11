@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Header = () => {
+    const { users, logOutAll } = useContext(AuthContext)
+
     const listItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/services">Services</Link></li>
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+
     </>
     return (
         <div className="navbar bg-base-100">
@@ -31,7 +35,16 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                {
+                    users ?
+                        <>
+                            <button className='btn btn-secondary' onClick={logOutAll}>Logout</button>
+                        </>
+                        :
+                        <>
+                            <button ><Link to="/login">Login</Link></button>
+                        </>
+                }
             </div>
         </div>
     );
