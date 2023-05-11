@@ -8,6 +8,8 @@ import Services from "../components/Services/Services";
 import Contact from "../components/Contact/Contact";
 import Signup from "../components/Signup/Signup";
 import BookingCart from "../components/BookingCart/BookingCart";
+import Mybookings from "../components/Mybookings/Mybookings";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -44,8 +46,12 @@ const router = createBrowserRouter([
                 element: <Login />
             },
             {
+                path: "/mybookings",
+                element: <PrivateRoute><Mybookings/></PrivateRoute>
+            },
+            {
                 path:"/bookingcarts/:id",
-                element:<BookingCart/>,
+                element:<PrivateRoute><BookingCart/></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/bookingcarts/${params.id}`)
             }
         ]
