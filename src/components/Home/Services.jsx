@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Service from './Service';
+import { useLoaderData } from 'react-router-dom';
 
 const Services = () => {
-    const[services,setServices]=useState([])
-    useEffect(()=>{
-        fetch('services.json')
-        .then(res=>res.json())
-        .then(data=>setServices(data))
-    },[])
+    const services = useLoaderData()
+ 
     return (
         <div>
             <div className='w-1/2 mx-auto text-center'>

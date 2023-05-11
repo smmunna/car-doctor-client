@@ -1,5 +1,6 @@
 import React from 'react';
 import nextIcon from '../../assets/icons/next.png'
+import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
     const { _id, title, price, img } = service;
@@ -12,7 +13,7 @@ const Service = ({ service }) => {
                 <h2 className="card-title">{title}</h2>
                 <div className="card-actions flex justify-between">
                     <p className='text-red-600 text-lg font-semibold'>Price: ${price}</p>
-                    <button><img src={nextIcon} width={30} alt="next" /></button>
+                    <Link to={`/bookingcarts/${_id}`}><button><img src={nextIcon} width={30} alt="next" /></button></Link>
                 </div>
             </div>
         </div>

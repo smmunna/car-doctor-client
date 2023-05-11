@@ -7,6 +7,7 @@ import Blog from "../components/Blog/Blog";
 import Services from "../components/Services/Services";
 import Contact from "../components/Contact/Contact";
 import Signup from "../components/Signup/Signup";
+import BookingCart from "../components/BookingCart/BookingCart";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home />
+                element: <Home />,
+                loader:()=>fetch('http://localhost:5000/services')
             },
             {
                 path: "/about",
@@ -41,6 +43,11 @@ const router = createBrowserRouter([
                 path: "/login",
                 element: <Login />
             },
+            {
+                path:"/bookingcarts/:id",
+                element:<BookingCart/>,
+                loader:({params})=>fetch(`http://localhost:5000/bookingcarts/${params.id}`)
+            }
         ]
     },
 ]);
