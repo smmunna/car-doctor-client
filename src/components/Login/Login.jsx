@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
 import LoginImg from '../../assets/images/login/login.svg'
 import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useLocation } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
     const { signInUser } = useContext(AuthContext)
     const [error, setError] = useState('')
     const navigate = useNavigate()
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
 
     const handleSignupSubmit = event => {
         event.preventDefault()
@@ -19,7 +22,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 if (user) {
-                    navigate("/")
+                    navigate(from, { replace: true })
                 }
             })
             .catch(error => {
