@@ -1,16 +1,33 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 import BookItems from './BookItems';
 
 const Mybookings = () => {
-    const { users } = useContext(AuthContext)
+    const { users, loading } = useContext(AuthContext)
+    const navigate = useNavigate()
+    if (!users && loading) {
+        return <div>Loading........</div>
+    }
     const [bookedItems, setBookedItems] = useState([])
     const url = `http://localhost:5000/bookingscartsdata?email=${users.email}`
     useEffect(() => {
-        fetch(url)
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access-token')}`
+            }
+        })
             .then(res => res.json())
-            .then(data => setBookedItems(data))
-    }, [])
+            .then(data => {
+                if (data) {
+                    setBookedItems(data)
+                }
+                else {
+                    navigate('/')
+                }
+            })
+    }, [url])
 
 
     const handleDelete = id => {
