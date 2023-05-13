@@ -31,7 +31,6 @@ const AuthProvider = ({ children }) => {
             const loogedUser = {
                 email: currentUser
             }
-            console.log(loogedUser.email)
 
             if (currentUser && loogedUser) {
                 fetch('http://localhost:5000/jwt', {
