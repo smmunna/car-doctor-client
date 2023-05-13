@@ -6,6 +6,8 @@ import { AuthContext } from '../../provider/AuthProvider';
 const Header = () => {
     const { users, logOutAll } = useContext(AuthContext)
 
+   
+
     const listItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
